@@ -6,7 +6,7 @@ This repository demonstrates **Retrieval-Augmented Generation (RAG)** using the 
 ## 👓Workflow
 1. **Document Embedding**: Documents are embedded using the `sentence-transformers/bert-base-nli-mean-tokens`.
 2. **Storing in Chroma**: The embedded document is stored in a **Chroma vector database** to facilitate efficient similarity-based retrieval.
-3. **Querying with Similarity Search**: When a user query is received, the system performs a **similarity search** against the embedded documents to retrieve the most relevant context.
+3. **Querying with Similarity Search**: When a user query is received (e.g., "Use strong detergent"), the system performs a **similarity search** against the embedded documents to retrieve the most relevant context.
 4. **Text Generation**: The model `google/flan-t5-large` uses the retrieved documents to answer queries such as whether a certain action should be done to the glasses.
 
 ## 👓Prompt Used
@@ -17,7 +17,7 @@ The prompt template is designed to help the model answer whether a certain actio
 from langchain_core.prompts import ChatPromptTemplate
 
 message = """
-Should I {question} to my glasses? Consider the following guidelines:
+Should I {question} to clean my glasses? Consider the following guidelines:
 Guidelines:
 {guideline}
 
